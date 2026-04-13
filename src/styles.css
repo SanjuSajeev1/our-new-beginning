@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.screen {
+  width: min(640px, 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 1.25rem;
+  padding: 5rem 1rem 1.4rem;
+  box-sizing: border-box;
+}
+
+.media {
+  width: min(260px, 72vw);
+  max-width: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.media-image {
+  aspect-ratio: 4 / 5;
+}
+
+.media-video {
+  background: #000;
+}
+
+.story-text {
+  white-space: pre-line;
+  line-height: 1.7;
+  font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+  color: #f5f5f5;
+  margin: 0;
+  max-width: 32ch;
+}
+
+.nav-button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f5f5f5;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 240ms ease;
+  box-shadow: 0 0 0 rgba(255, 170, 230, 0);
+  backdrop-filter: blur(4px);
+}
+
+.nav-button:hover {
+  border-color: rgba(255, 170, 230, 0.7);
+  box-shadow: 0 0 26px rgba(255, 170, 230, 0.28);
+}
+
+.nav-button:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.back-button {
+  position: absolute;
+  left: clamp(0.9rem, 3vw, 2.2rem);
+  top: clamp(0.9rem, 3vw, 2.2rem);
+}
+
+.music-button {
+  position: absolute;
+  right: clamp(0.9rem, 3vw, 2.2rem);
+  top: clamp(0.9rem, 3vw, 2.2rem);
+  z-index: 3;
+}
+
+.continue-button {
+  align-self: center;
+  margin-top: 0.65rem;
+  opacity: 0.7;
+}
+
+.screen3-center {
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bottom-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-right: 0.25rem;
+}
+
+.swipe-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: rgba(245, 245, 245, 0.62);
+  letter-spacing: 0.02em;
+}
+
+.hero-moment-screen {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+}
+
+.hero-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-flower {
+  position: absolute;
+  top: -12%;
+  opacity: 0.36;
+  filter: blur(0.15px);
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.09) 0.6px, transparent 1.2px),
+    radial-gradient(circle at 74% 28%, rgba(255, 255, 255, 0.08) 0.7px, transparent 1.3px),
+    radial-gradient(circle at 40% 64%, rgba(255, 255, 255, 0.08) 0.6px, transparent 1.2px);
+  filter: blur(0.35px);
+  opacity: 0.45;
+}
+
+.hero-glow {
+  position: absolute;
+  width: min(520px, 88vw);
+  height: min(320px, 48vh);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 191, 230, 0.24), rgba(255, 191, 230, 0));
+  filter: blur(22px);
+}
+
+.hero-text-wrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  gap: 0.4rem;
+}
+
+.hero-line {
+  margin: 0;
+  color: #f5f5f5;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.hero-line-soft {
+  font-size: clamp(36px, 6vw, 42px);
+}
+
+.hero-line-strong {
+  font-size: clamp(48px, 8vw, 56px);
+}
+
+.hero-you {
+  color: #ffffff;
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+.calm-pause-screen {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+}
+
+.calm-glow {
+  position: absolute;
+  width: min(430px, 82vw);
+  height: min(250px, 38vh);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 230, 255, 0.14), rgba(230, 230, 255, 0));
+  filter: blur(20px);
+}
+
+.calm-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.calm-particle {
+  position: absolute;
+  top: 24%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.calm-text {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.6;
+  max-width: 26ch;
+}
+
+.screen7-warm {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+}
+
+.screen7-glow {
+  position: absolute;
+  width: min(460px, 84vw);
+  height: min(280px, 40vh);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 179, 179, 0.18), rgba(255, 214, 214, 0));
+  filter: blur(20px);
+}
+
+.screen7-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.screen7-particle {
+  position: absolute;
+  top: 28%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 214, 214, 0.16);
+}
+
+.screen7-text-wrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.7rem;
+  place-items: center;
+}
+
+.screen7-text {
+  max-width: 30ch;
+  line-height: 1.9;
+  font-size: clamp(1.2rem, 2.3vw, 1.8rem);
+  margin: 0;
+}
+
+.screen8-special {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+}
+
+.screen8-glow {
+  position: absolute;
+  width: min(470px, 85vw);
+  height: min(290px, 42vh);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 179, 255, 0.18), rgba(255, 179, 255, 0));
+  filter: blur(22px);
+}
+
+.screen8-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.screen8-particle {
+  position: absolute;
+  top: 30%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(242, 218, 255, 0.15);
+}
+
+.screen8-text-wrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  gap: 0.6rem;
+}
+
+.screen8-line-1,
+.screen8-line-2 {
+  margin: 0;
+  color: #f5f5f5;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(240, 209, 255, 0.26);
+}
+
+.screen8-line-1 {
+  font-size: clamp(40px, 6vw, 44px);
+}
+
+.screen8-line-2 {
+  font-size: clamp(28px, 4.4vw, 34px);
+  line-height: 1.35;
+}
+
+.app-shell.diary-mode {
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.app-shell.final-scroll-mode {
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.app-shell.bright-mode .screen {
+  background: linear-gradient(to bottom, #ffffff, #fff8fd);
+}
+
+.app-shell.bright-mode .story-text,
+.app-shell.bright-mode .swipe-hint,
+.app-shell.bright-mode .screen8-line-1,
+.app-shell.bright-mode .screen8-line-2,
+.app-shell.bright-mode .hero-line,
+.app-shell.bright-mode .hero-you {
+  color: #2c2c2c;
+  text-shadow: none;
+}
+
+.app-shell.bright-mode .nav-button {
+  border-color: rgba(255, 143, 205, 0.35);
+  background: rgba(255, 255, 255, 0.8);
+  color: #2c2c2c;
+  box-shadow: 0 8px 20px rgba(255, 143, 205, 0.14);
+}
+
+.diary-page {
+  min-height: 100vh;
+  padding: 2rem 1rem 3.5rem;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(253, 246, 227, 0.95),
+      rgba(253, 246, 227, 0.95)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(77, 102, 136, 0.14) 35px,
+      transparent 36px
+    );
+}
+
+.diary-sheet {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  color: #333;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.015em;
+  text-transform: lowercase;
+  padding: 0.8rem 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 0 1px rgba(80, 80, 80, 0.06),
+    0 14px 34px rgba(50, 40, 20, 0.15);
+}
+
+.diary-title {
+  margin: 0 0 1.2rem;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #2d2d2d;
+}
+
+.diary-entry {
+  position: relative;
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 0.4rem 1rem;
+}
+
+.diary-entry p {
+  margin: 0;
+  white-space: pre-line;
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  line-height: 1.55;
+}
+
+.doodle {
+  position: absolute;
+  opacity: 0.75;
+  user-select: none;
+}
+
+.doodle-a {
+  right: 2%;
+  top: 8%;
+}
+
+.doodle-b {
+  right: 8%;
+  bottom: 2%;
+}
+
+.screen51-final {
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.screen51-text {
+  max-width: 24ch;
+}
+
+.screen51-actions {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.screen51-button {
+  border: none;
+  border-radius: 20px;
+  padding: 0.72rem 1.2rem;
+  font-size: 0.95rem;
+  color: #fff;
+  cursor: pointer;
+  transition: filter 220ms ease, box-shadow 220ms ease;
+}
+
+.screen51-button:hover {
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.2);
+}
+
+.screen51-deal {
+  background: #4caf50;
+}
+
+.screen51-deal:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.45);
+}
+
+.screen51-no-deal {
+  background: #888;
+}
+
+.screen51-no-deal:hover {
+  filter: brightness(1.13);
+  box-shadow: 0 0 20px rgba(176, 176, 176, 0.42);
+}
+
+.screen51-response-wrap {
+  min-height: 2.4rem;
+  display: grid;
+  place-items: center;
+  gap: 0.25rem;
+}
+
+.screen51-response {
+  margin: 0;
+}
+
+.screen51-heart {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.screen52-diary-page {
+  padding-top: 5.5rem;
+}
+
+.screen52-diary-page .diary-entry p {
+  font-size: clamp(1.28rem, 2.6vw, 1.65rem);
+}
+
+@media (max-width: 560px) {
+  .screen {
+    padding-top: 4.2rem;
+  }
+}
