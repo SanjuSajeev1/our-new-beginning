@@ -13,7 +13,10 @@ export default function ScreenTemplate({
   text,
   screenNumber,
   imageSrc,
+  imageContain,
   videoSrc,
+  videoAutoPlay,
+  videoPoster,
   hideMedia,
   onNext,
   onBack,
@@ -66,13 +69,18 @@ export default function ScreenTemplate({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             src={videoSrc}
+            poster={videoPoster}
             controls
+            autoPlay={videoAutoPlay}
+            muted={videoAutoPlay}
+            loop={videoAutoPlay}
+            playsInline={videoAutoPlay}
           />
         ) : (
           <motion.img
             src={localImageSrc}
             alt={`${mood} journey illustration`}
-            className="media media-image"
+            className={`media media-image ${imageContain ? 'media-image-contain' : ''}`}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}

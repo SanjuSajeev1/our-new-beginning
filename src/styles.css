@@ -35,6 +35,11 @@
   aspect-ratio: 4 / 5;
 }
 
+.media-image-contain {
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.25);
+}
+
 .media-video {
   background: #000;
 }
@@ -411,6 +416,30 @@
   top: 52%;
   color: rgba(255, 255, 255, 0.45);
   font-size: 0.78rem;
+}
+
+.screen38-dual {
+  justify-content: center;
+}
+
+.screen38-single-card {
+  width: min(560px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+.screen38-card-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  display: block;
 }
 
 .app-shell.diary-mode {
