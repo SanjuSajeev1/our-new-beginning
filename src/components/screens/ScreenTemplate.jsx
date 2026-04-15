@@ -60,6 +60,25 @@ export default function ScreenTemplate({
         video.play().catch(() => {})
       })
     }
+
+    const enableAudioOnFirstInteraction = () => {
+      video.muted = false
+      video.volume = 1
+      video.play().catch(() => {})
+      window.removeEventListener('touchstart', enableAudioOnFirstInteraction)
+      window.removeEventListener('pointerdown', enableAudioOnFirstInteraction)
+      window.removeEventListener('click', enableAudioOnFirstInteraction)
+    }
+
+    window.addEventListener('touchstart', enableAudioOnFirstInteraction, { once: true })
+    window.addEventListener('pointerdown', enableAudioOnFirstInteraction, { once: true })
+    window.addEventListener('click', enableAudioOnFirstInteraction, { once: true })
+
+    return () => {
+      window.removeEventListener('touchstart', enableAudioOnFirstInteraction)
+      window.removeEventListener('pointerdown', enableAudioOnFirstInteraction)
+      window.removeEventListener('click', enableAudioOnFirstInteraction)
+    }
   }, [videoAutoPlay, resolvedVideoMuted])
 
   const handleDragEnd = (_, info) => {
