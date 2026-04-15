@@ -622,6 +622,48 @@
   display: block;
 }
 
+.screen46-floral,
+.screen49-floral {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  background: linear-gradient(to bottom, #fff4fb, #ffeef7, #fff7ec);
+}
+
+.app-shell.bright-mode .screen.screen46-floral,
+.app-shell.bright-mode .screen.screen49-floral {
+  background: linear-gradient(to bottom, #fff4fb, #ffeef7, #fff7ec);
+}
+
+.screen46-flowers,
+.screen49-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.screen46-flower,
+.screen49-flower {
+  position: absolute;
+  bottom: -10%;
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  color: rgba(255, 118, 177, 0.55);
+  filter: blur(0.2px);
+}
+
+.screen46-text,
+.screen49-text {
+  position: relative;
+  z-index: 2;
+  max-width: 20ch;
+  color: #d64274;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5.5vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(214, 66, 116, 0.2), 0 6px 18px rgba(214, 66, 116, 0.16);
+}
+
 .app-shell.diary-mode {
   display: block;
   height: 100vh;

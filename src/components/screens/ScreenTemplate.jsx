@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const moodFallbacks = {
@@ -16,7 +17,9 @@ export default function ScreenTemplate({
   imageContain,
   videoSrc,
   videoAutoPlay,
+  videoMuted,
   videoPoster,
+  bgMusicVolume,
   hideMedia,
   onNext,
   onBack,
@@ -26,9 +29,38 @@ export default function ScreenTemplate({
   lightweight,
 }) {
   const localImageSrc = imageSrc || `/images/screen${screenNumber}.jpg`
+  const resolvedVideoMuted = typeof videoMuted === 'boolean' ? videoMuted : videoAutoPlay
   const swipeThreshold = 60
   const transitionDuration = lightweight ? 0.45 : 0.8
   const dragElastic = lightweight ? 0.08 : 0.2
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (typeof bgMusicVolume !== 'number') return
+    const bgMusic = document.getElementById('bgMusic')
+    if (!bgMusic) return
+
+    const previousVolume = bgMusic.volume
+    bgMusic.volume = bgMusicVolume
+
+    return () => {
+      bgMusic.volume = previousVolume
+    }
+  }, [bgMusicVolume])
+
+  useEffect(() => {
+    if (!videoAutoPlay) return
+    const video = videoRef.current
+    if (!video) return
+
+    const playAttempt = video.play()
+    if (playAttempt && typeof playAttempt.catch === 'function') {
+      playAttempt.catch(() => {
+        video.muted = true
+        video.play().catch(() => {})
+      })
+    }
+  }, [videoAutoPlay, resolvedVideoMuted])
 
   const handleDragEnd = (_, info) => {
     if (info.offset.x < -swipeThreshold && !isLast) {
@@ -64,15 +96,16 @@ export default function ScreenTemplate({
       >
         {hideMedia ? null : videoSrc ? (
           <motion.video
+            ref={videoRef}
             className="media media-video"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             src={videoSrc}
             poster={videoPoster}
-            controls
+            controls={!videoAutoPlay}
             autoPlay={videoAutoPlay}
-            muted={videoAutoPlay}
+            muted={resolvedVideoMuted}
             loop={videoAutoPlay}
             playsInline={videoAutoPlay}
           />
