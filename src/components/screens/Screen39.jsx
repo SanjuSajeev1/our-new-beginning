@@ -5,7 +5,7 @@ const screenConfig = {
   text: "You being you",
   screenNumber: 39,
   videoSrc: "/images/screen39.mp4",
-  videoAutoPlay: false,
+  videoAutoPlay: true,
   videoMuted: false,
   bgMusicVolume: 0.01,
 };
