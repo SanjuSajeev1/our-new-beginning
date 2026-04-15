@@ -5,7 +5,9 @@ const screenConfig = {
   text: "I see it.",
   screenNumber: 35,
   videoSrc: "/images/seeit.mp4",
-  videoAutoPlay: true,
+  videoAutoPlay: false,
+  videoMuted: true,
+  bgMusicVolume: 0.2,
 };
 
 export default function Screen35(props) {

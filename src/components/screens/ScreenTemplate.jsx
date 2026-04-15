@@ -20,6 +20,7 @@ export default function ScreenTemplate({
   videoMuted,
   videoPoster,
   bgMusicVolume,
+  pauseBgMusic,
   hideMedia,
   onNext,
   onBack,
@@ -47,6 +48,20 @@ export default function ScreenTemplate({
       bgMusic.volume = previousVolume
     }
   }, [bgMusicVolume])
+
+  useEffect(() => {
+    if (!pauseBgMusic) return
+    const bgMusic = document.getElementById('bgMusic')
+    if (!bgMusic) return
+
+    const wasPausedBefore = bgMusic.paused
+    bgMusic.pause()
+
+    return () => {
+      if (wasPausedBefore) return
+      bgMusic.play().catch(() => {})
+    }
+  }, [pauseBgMusic])
 
   useEffect(() => {
     if (!videoAutoPlay) return
@@ -80,6 +95,27 @@ export default function ScreenTemplate({
       window.removeEventListener('click', enableAudioOnFirstInteraction)
     }
   }, [videoAutoPlay, resolvedVideoMuted])
+
+  useEffect(() => {
+    if (!videoSrc) return
+    const video = videoRef.current
+    const bgMusic = document.getElementById('bgMusic')
+    if (!video || !bgMusic) return
+
+    const resumeBackgroundMusic = () => {
+      if (!bgMusic.paused) return
+      bgMusic.play().catch(() => {})
+    }
+
+    video.addEventListener('ended', resumeBackgroundMusic)
+    video.addEventListener('pause', resumeBackgroundMusic)
+
+    return () => {
+      video.removeEventListener('ended', resumeBackgroundMusic)
+      video.removeEventListener('pause', resumeBackgroundMusic)
+      resumeBackgroundMusic()
+    }
+  }, [videoSrc])
 
   const handleDragEnd = (_, info) => {
     if (info.offset.x < -swipeThreshold && !isLast) {

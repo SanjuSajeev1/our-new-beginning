@@ -7,7 +7,7 @@ const screenConfig = {
   videoSrc: "/images/screen39.mp4",
   videoAutoPlay: true,
   videoMuted: false,
-  bgMusicVolume: 0.01,
+  pauseBgMusic: true,
 };
 
 export default function Screen39(props) {
