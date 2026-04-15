@@ -5,9 +5,9 @@ const screenConfig = {
   text: "You being you",
   screenNumber: 39,
   videoSrc: "/images/screen39.mp4",
-  videoAutoPlay: true,
+  videoAutoPlay: false,
   videoMuted: false,
-  bgMusicVolume: 0.04,
+  bgMusicVolume: 0.01,
 };
 
 export default function Screen39(props) {
