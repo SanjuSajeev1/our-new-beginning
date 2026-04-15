@@ -1,12 +1,12 @@
-import ScreenTemplate from './ScreenTemplate'
+import ScreenTemplate from "./ScreenTemplate";
 
 const screenConfig = {
-  "mood": "love",
-  "text": "This moment...\nfelt peaceful.",
-  "imageSrc": "/us.jpg",
-  "screenNumber": 25
-}
+  mood: "love",
+  text: "You at this age? As Lil Kummmmuu ?",
+  imageSrc: "/images/screen25.jpeg",
+  screenNumber: 25,
+};
 
 export default function Screen25(props) {
-  return <ScreenTemplate {...screenConfig} {...props} />
+  return <ScreenTemplate {...screenConfig} {...props} />;
 }

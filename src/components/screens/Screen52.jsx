@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
-const finalEntry = `hey…
+const finalEntry = `Kummuuuuuu…
 
 if you made it till here,
 that already means something to me 🙂
@@ -19,7 +19,7 @@ just… us,
 figuring things out one day at a time.
 
 with love,
-your chutttuuuuu 💛`
+your chutttuuuuu 💛`;
 
 export default function Screen52({ onBack, isFirst, direction }) {
   return (
@@ -40,10 +40,10 @@ export default function Screen52({ onBack, isFirst, direction }) {
         initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
         exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="diary-sheet">
-          <h1 className="diary-title">my little diary</h1>
+          <h1 className="diary-title">To my Dearest,</h1>
           <motion.article
             className="diary-entry"
             initial={{ opacity: 0, y: 12 }}
@@ -57,5 +57,5 @@ export default function Screen52({ onBack, isFirst, direction }) {
         </div>
       </motion.section>
     </>
-  )
+  );
 }
